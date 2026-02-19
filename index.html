@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sounds</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .music img {
+            width: 200px;
+            margin: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .music img:hover {
+            transform: scale(1.1);
+        }
+
+        a {
+            color: yellow;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        a:hover {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sounds</h1>
+    <p>Click a picture to play music</p>
+
+    <!-- MUSIC SECTION -->
+    <div class="music">
+        <img src="kokila.png" onclick="toggleMusic('Kokilla.mp3')" alt="Kokila">
+        <img src="hanuman.jfif" onclick="toggleMusic('hanuman_chalisa.mp3')" alt="Hanuman Chalisa">
+        <img src="ram.jpg" onclick="toggleMusic('Ram_Siya_Ram.mp3')" alt="Ram Siya Ram">
+        <img src="golden_deer.jfif" onclick="toggleMusic('deer_sound.mp3')" alt="Deer Sound">
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <br><br>
+
+    <!-- LINK TO GALLERY PAGE -->
+    <a href="gallery.html">📸 View Drama Gallery</a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const audio = document.getElementById("audioPlayer");
+        let currentSong = "";
+
+        function toggleMusic(song) {
+            if (currentSong === song) {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            } else {
+                audio.src = song;
+                audio.play();
+                currentSong = song;
+            }
+        }
+    </script>
+
+</body>
+</html>
